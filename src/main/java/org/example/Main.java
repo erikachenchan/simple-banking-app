@@ -3,12 +3,8 @@ package org.example;
 import java.util.Scanner;
 
 public class Main {
-
     public static final Scanner scanner = new Scanner(System.in);
-    static double defaultBalance;
-    static double depositBalance;
-    static double withdrawBalance;
-    static double totalBalance;
+    static double defaultBalance = 1000;
     static int defaultPin = 1234;
 
     public static void main(String[] args) {
@@ -20,10 +16,6 @@ public class Main {
             try {
                 System.out.println("Enter pin: ");
                 int userPin = Integer.parseInt(scanner.nextLine());
-
-                if (userPin != defaultPin) {
-                    System.out.println("Incorrect pin try again!");
-                }
 
                 if (userPin == defaultPin) {
                     displayMenu();
@@ -58,12 +50,15 @@ public class Main {
                             System.out.println("Invalid choice, please try again");
                             break;
                     }
+                } else {
+                    System.out.println("Incorrect pin try again");
+                    System.out.println("");
                 }
             } catch (Exception e) {
                 System.out.println("Input PIN again using four digits!");
+                System.out.println("");
             }
         }
-
     }
 
     public static void displayMenu() {
@@ -73,45 +68,43 @@ public class Main {
         System.out.println("[ E ] - Exit");
     }
 
-    public static double depositMoney() {
+    public static void depositMoney() {
 
         System.out.print("How much would you like to deposit: ");
         double userInputDeposit = Double.parseDouble(scanner.nextLine());
-        depositBalance = defaultBalance + userInputDeposit;
+        defaultBalance += userInputDeposit;
 
-        System.out.println("Your remaining balance is: " + depositBalance + " GBP.");
+        System.out.println("Your remaining balance is: " + defaultBalance + " GBP.");
         System.out.println("Thanks for banking with us!");
         System.out.println("");
 
-        totalBalance = depositBalance;
-        return totalBalance;
     }
 
-    public static double withdrawMoney() {
+    public static void withdrawMoney() {
 
-        System.out.println("How much would you like withdraw? ");
+        System.out.print("How much would you like withdraw?: ");
 
         double userInputWithdraw = Double.parseDouble(scanner.nextLine());
 
-        if (userInputWithdraw > totalBalance) {
+        if (userInputWithdraw > defaultBalance) {
             System.out.println("Insufficient funds!");
         }
 
-        if (userInputWithdraw < totalBalance) {
-            withdrawBalance = userInputWithdraw - defaultBalance;
+        if (userInputWithdraw < defaultBalance) {
+            defaultBalance -= userInputWithdraw;
         }
 
         System.out.println("");
 
-        totalBalance = withdrawBalance;
-        System.out.println("Your remaining balance is: " + totalBalance + " GBP.");
+        System.out.println("Your remaining balance is: " + defaultBalance + " GBP.");
         System.out.println("You will get " + userInputWithdraw + " GBP.");
         System.out.println("Thanks for banking with us!");
-        return totalBalance;
+        System.out.println("");
+
     }
 
     private static void checkBalance() {
-        System.out.println("Your remaining balance is: " + totalBalance + " GBP.");
+        System.out.println("Your remaining balance is: " + defaultBalance + " GBP.");
         System.out.println("Thanks for banking with us!");
     }
 
