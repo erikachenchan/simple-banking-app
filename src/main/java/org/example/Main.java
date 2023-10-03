@@ -21,7 +21,7 @@ public class Main {
                 System.out.println("Enter pin: ");
                 int userPin = Integer.parseInt(scanner.nextLine());
                 if (userPin != defaultPin) {
-                    System.out.println("Incorrect pin!");
+                    System.out.println("Incorrect pin try again!");
                 }
                 if (userPin == defaultPin) {
                     displayMenu();
@@ -93,14 +93,15 @@ public class Main {
             System.out.println("Don't withdraw higher than your current balance!");
         }
         if (userInputWithdraw < totalBalance) {
-            withdrawBalance = defaultBalance - userInputWithdraw;
+            withdrawBalance = userInputWithdraw - defaultBalance;
         }
-        System.out.println("Your remaining balance is: " + withdrawBalance + " GBP.");
-        System.out.println("You will get " + userInputWithdraw + " GBP.");
-        System.out.println("Thanks for banking with us!");
+
         System.out.println("");
 
         totalBalance = withdrawBalance;
+        System.out.println("Your remaining balance is: " + totalBalance + " GBP.");
+        System.out.println("You will get " + userInputWithdraw + " GBP.");
+        System.out.println("Thanks for banking with us!");
         return totalBalance;
     }
 
