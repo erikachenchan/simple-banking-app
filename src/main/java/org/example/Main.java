@@ -90,7 +90,7 @@ public class Main {
         double userInputWithdraw = Double.parseDouble(scanner.nextLine());
 
         if (userInputWithdraw > totalBalance) {
-            System.out.println("Don't withdraw higher than your current balance!");
+            System.out.println("Insufficient funds!");
         }
         if (userInputWithdraw < totalBalance) {
             withdrawBalance = userInputWithdraw - defaultBalance;
@@ -106,10 +106,8 @@ public class Main {
     }
 
     private static void checkBalance() {
-
         System.out.println("Your remaining balance is: " + totalBalance + " GBP.");
         System.out.println("Thanks for banking with us!");
-
     }
 
 }

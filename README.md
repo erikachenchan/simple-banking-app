@@ -29,3 +29,18 @@ Thanks for banking with us!
 ### For check balance
 Your remaining balance is: 1000
 Thanks for banking with us!
+
+# Test Cases
+
+## test cases
+- Check if users input the wrong pin then throws messages "Incorrect pin try again!"
+- Check if users prompt wrong input then throw exceptions messages "You enter an invalid choices, please try again"
+- Check if users input small letters when asked to pick either (w,d,c)
+- Check if users able to check the default balance 1000 GBP
+- Check if users able to check the current balance 
+- Check if users able to withdraw money and show the total balance.
+- Check if users able to withdraw money higher than the current balance and should return messages "Insufficient funds"
+- Check if users able to deposit money and display the total balance after. 
+
+
+
