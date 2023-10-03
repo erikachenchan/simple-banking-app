@@ -18,7 +18,7 @@ Transaction Available
 ### For withdrawal
 How much would you like to withdraw:
 Your remaining balance is:
-You will get ___ pesos.
+You will get ___ GBP.
 Thanks for banking with us!
 
 ### For deposit
