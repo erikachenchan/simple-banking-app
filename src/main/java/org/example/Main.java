@@ -9,23 +9,26 @@ public class Main {
     static double depositBalance;
     static double withdrawBalance;
     static double totalBalance;
+    static int defaultPin = 1234;
 
     public static void main(String[] args) {
 
         String usersChoice;
-        int defaultPin = 1234;
         boolean exit = false;
 
         while (!exit) {
             try {
                 System.out.println("Enter pin: ");
                 int userPin = Integer.parseInt(scanner.nextLine());
+
                 if (userPin != defaultPin) {
                     System.out.println("Incorrect pin try again!");
                 }
+
                 if (userPin == defaultPin) {
                     displayMenu();
                     System.out.println("Enter your choice: ");
+
                     while (true) {
                         try {
                             usersChoice = scanner.nextLine().trim().toUpperCase();
@@ -37,6 +40,7 @@ public class Main {
                             displayMenu();
                         }
                     }
+
                     switch (usersChoice) {
                         case "D":
                             depositMoney();
@@ -92,6 +96,7 @@ public class Main {
         if (userInputWithdraw > totalBalance) {
             System.out.println("Insufficient funds!");
         }
+
         if (userInputWithdraw < totalBalance) {
             withdrawBalance = userInputWithdraw - defaultBalance;
         }

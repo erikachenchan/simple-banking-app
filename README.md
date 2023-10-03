@@ -1,7 +1,7 @@
 # simple-banking-app
 
 Create a program that will process a basic transaction of an ATM. The program must have a withdrawal deposit, and checking of blanace.
-The default pin is "123456", the default cas on account is 100. 
+The default pin is "123456", the default cash on account is 0. 
 One transaction per execution of program to test.
 The program must test if the amount to withdraw is less than or equal to current cash on account.
 You can create your own messages per test cases like "Insufficient fund" or "Incorrect Pin" etc.
