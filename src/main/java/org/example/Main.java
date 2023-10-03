@@ -96,7 +96,7 @@ public class Main {
 
         System.out.println("");
 
-        System.out.println("Your remaining balance is: " + defaultBalance + " GBP.");
+        System.out.println("Your remaining balance is: " + defaultBalance + " GBP");
         System.out.println("You will get " + userInputWithdraw + " GBP.");
         System.out.println("Thanks for banking with us!");
         System.out.println("");
