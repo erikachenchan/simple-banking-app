@@ -7,30 +7,56 @@ public class Main {
     static double defaultBalance = 1000;
     static int defaultPin = 1234;
 
-    static int userPin;
-    static String usersChoice;
-
     public static void main(String[] args) {
 
+        String usersChoice;
         boolean exit = false;
+
         while (!exit) {
-            authenticateUser();
-            switch (usersChoice) {
-                case "D":
-                    depositMoney();
-                    break;
-                case "W":
-                    withdrawMoney();
-                    break;
-                case "C":
-                    checkBalance();
-                    break;
-                case "E":
-                    exit = true;
-                    break;
-                default:
-                    System.out.println("Invalid choice, please try again");
-                    break;
+            try {
+                System.out.println("Enter pin: ");
+                int userPin = Integer.parseInt(scanner.nextLine());
+
+                if (userPin == defaultPin) {
+                    displayMenu();
+                    System.out.println("Enter your choice: ");
+
+                    while (true) {
+                        try {
+                            usersChoice = scanner.nextLine().trim().toUpperCase();
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("");
+                            System.out.println("You enter an invalid choice, please try again");
+                            System.out.println("");
+                            displayMenu();
+                        }
+                    }
+
+                    switch (usersChoice) {
+                        case "D":
+                            depositMoney();
+                            break;
+                        case "W":
+                            withdrawMoney();
+                            break;
+                        case "C":
+                            checkBalance();
+                            break;
+                        case "E":
+                            exit = true;
+                            break;
+                        default:
+                            System.out.println("Invalid choice, please try again");
+                            break;
+                    }
+                } else {
+                    System.out.println("Incorrect pin try again");
+                    System.out.println("");
+                }
+            } catch (Exception e) {
+                System.out.println("Input PIN again using four digits!");
+                System.out.println("");
             }
         }
     }
@@ -40,37 +66,6 @@ public class Main {
         System.out.println("[ D ] - Deposit");
         System.out.println("[ C ] - Check balance");
         System.out.println("[ E ] - Exit");
-    }
-
-    public static void authenticateUser() {
-        try {
-            System.out.println("Enter pin: ");
-            userPin = Integer.parseInt(scanner.nextLine());
-
-            if (userPin == defaultPin) {
-                displayMenu();
-                System.out.println("Enter your choice: ");
-
-                while (true) {
-                    try {
-                        usersChoice = scanner.nextLine().trim().toUpperCase();
-                        break;
-                    } catch (Exception e) {
-                        System.out.println("");
-                        System.out.println("You enter an invalid choice, please try again");
-                        System.out.println("");
-                        displayMenu();
-                    }
-                }
-            } else {
-                System.out.println("Incorrect pin try again");
-                System.out.println("");
-            }
-        } catch (
-                Exception e) {
-            System.out.println("Input PIN again using four digits!");
-            System.out.println("");
-        }
     }
 
     public static void depositMoney() {
